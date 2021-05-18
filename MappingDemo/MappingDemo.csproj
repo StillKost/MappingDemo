@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AutoMapper\" />
-    <Folder Include="Me\" />
+    <Folder Include="Abstractions\" />
   </ItemGroup>
 
   <ItemGroup>
