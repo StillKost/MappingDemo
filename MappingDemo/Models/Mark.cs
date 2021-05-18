@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
+using MappingDemo.Abstractions;
+
 namespace MappingDemo.Models
 {
-    public class Mark
+    public class Mark : IDbModel
     {
-        public int Id { get; set; }
         public int LessonId { get; set; }
         public int StudentId { get; set; }
         public int Points { get; set; }
