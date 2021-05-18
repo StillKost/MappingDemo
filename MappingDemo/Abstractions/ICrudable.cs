@@ -31,12 +31,23 @@ namespace MappingDemo.Abstractions
             return model;
         }
 
-        public static List<T> GetAll<T>()
+        public static List<T> GetAll<T>(Func<T, bool> wherePredicate = null)
             where T : IDbModel
         {
             using var context = new ApplicationDbContext();
             var set = context.Set<T>();
-            return set.ToList<T>();
+
+            var data = new List<T>();
+            if (wherePredicate != null)
+            {
+                data = set.Where(wherePredicate).ToList();
+            }
+            else
+            {
+                data = set.ToList();
+            }           
+
+            return data;
         }
 
         public static void Destroy<T>(T model)

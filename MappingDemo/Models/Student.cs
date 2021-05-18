@@ -13,7 +13,7 @@ namespace MappingDemo.Models
         
         public List<Mark> Marks { get; set; }
 
-        public List<Mark> LoadMarks() => ICrudable.GetAll<Mark>().Where(x => x.StudentId == Id).ToList();
+        public List<Mark> LoadMarks() => ICrudable.GetAll<Mark>(x => x.StudentId == Id).ToList();
         
     }
 }
