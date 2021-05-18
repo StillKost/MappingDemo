@@ -12,17 +12,15 @@ namespace MappingDemo
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World, I`m mapping!");
-            
+
             // Mapping example.
-            var students = ICrudable.GetAll<Student>();
+            var students = ICrudable.GetAll<Student>();         
 
             foreach (var student in students)
             {
                 var viewModel = StudentViewModel.Map(student);
                 Console.WriteLine($"{viewModel.UniqName} - {viewModel.AvgMark}");
             }
-
-
 
             Console.ReadKey();
         }

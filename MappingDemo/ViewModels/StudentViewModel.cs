@@ -19,7 +19,7 @@ namespace MappingDemo.ViewModels
         {
             var config = new MapperConfiguration(c => c.CreateMap<Student, StudentViewModel>()
                 .ForMember("UniqName", o => o.MapFrom(x => $"{x.Id}. {x.Name}"))
-                .ForMember("AvgMark", o => o.MapFrom(x => x.Marks.Sum(x => x.Points))));
+                .ForMember("AvgMark", o => o.MapFrom(x => x.LoadMarks().Average(x => x.Points))));
 
             var entry = new Mapper(config).Map<StudentViewModel>(student);
 
